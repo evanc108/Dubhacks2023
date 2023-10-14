@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "dialog",
+    "slug": "dialog",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "dialog"
+}
