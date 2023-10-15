@@ -97,7 +97,7 @@ def extract_feature(file_name, mfcc, chroma, mel):
 # Load the data and extract features for each sound file
 def load_data(test_size=0.2):
     x, y = [], []
-    data_directory = "/Users/johnslee/Downloads/speech-emotion-recognition-ravdess-data"
+    data_directory = "speech-emotion-recognition-ravdess-data"
     for file in glob.glob(f"{data_directory}/Actor_*/*.wav"):
         file_name = os.path.basename(file)
         emotion = emotions[file_name.split("-")[2]]
