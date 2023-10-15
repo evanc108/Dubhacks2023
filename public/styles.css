@@ -14,6 +14,13 @@ div {
   width: 100%;
 }
 
+body {
+  width: 35%;
+  height: 100vh;
+  margin: 0 auto;
+  border: 1px solid cornflowerblue;
+}
+
 div#core, div#callingArea {
   border: 1px solid cornflowerblue;
 }
@@ -28,7 +35,6 @@ input.error {
 
 div#videoArea {
   height: 200px;
-  width: 600px;
 }
 
 div#videoArea video {
@@ -41,9 +47,6 @@ button {
 }
 #callControls label {
   margin: 5px;
-}
-#participantsList {
-  width: 500px;
 }
 
 
