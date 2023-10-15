@@ -19,6 +19,7 @@ body {
   height: 100vh;
   margin: 0 auto;
   border: 1px solid cornflowerblue;
+  font-family: 'Inter', sans-serif;
 }
 
 div#core, div#callingArea {

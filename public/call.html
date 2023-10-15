@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calling Screen</title>
+    <style>
+      body {
+        background-color: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .phone-screen {
+        background-color: #575757;
+        border: 5px solid #555;
+        border-radius: 15px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 95%;
+        width: 35%; /* Adjust the width as needed */
+        position: relative;
+      }
+
+      #signInButton {
+        border: none;
+        padding: 15px 30px;
+        background-color: #ea0a8e;
+        color: white;
+        font-size: 19px;
+        border-radius: 10px;
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .end-button {
+        border: none;
+        padding: 15px 30px;
+        background-color: #ff2f00;
+        color: white;
+        font-size: 19px;
+        border-radius: 10px;
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .circle-icon {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        background-color: #163455; /* Solid green color for the center */
+        animation: pulse s infinite;
+      }
+
+      .circle-icon i {
+        font-size: 40px;
+        color: white;
+      }
+
+      .circle-icon::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 110%;
+        height: 110%;
+        background: radial-gradient(circle, #00ff00 10%, transparent 80%);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+        opacity: 0;
+      }
+
+      .center-circle {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #163455; /* Solid green color for the center */
+        border-radius: 50%;
+        z-index: 1; /* Ensure it's on top of the pulsing circle */
+      }
+
+      .call-status {
+        color: white;
+        font-size: 18px;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7);
+          opacity: 1;
+        }
+        100% {
+          box-shadow: 0 0 10px 20px rgba(0, 255, 0, 0);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="phone-screen">
+      <div class="call-status">Calling...</div>
+
+      <!-- Circle icon to represent the other person -->
+      <div class="circle-icon">
+        <i class="fas fa-user"></i>
+        <div class="center-circle"></div> <!-- Add the center circle here -->
+      </div>
+
+      <!-- Buttons for calling and signing in -->
+      <button class="end-button">End Call</button>
+    </div>
+  </body>
+</html>

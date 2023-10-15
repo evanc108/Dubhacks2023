@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Hind' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="dial.css">
     <title>Dial</title>
     <style>
@@ -10,6 +12,7 @@
             width: 35%;
             height: 100vh;
             margin: 0 auto;
+            font-family: 'Hind', sans-serif;
         }
 
         .container {
@@ -20,10 +23,23 @@
             height: 100vh;
         }
 
+        #signInButton {
+            border:none;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            background-color: #ea0a8e;
+            color: white;
+            font-size: 19px;
+            border-radius: 10px;
+        }
+
+
         .number-row {
             display: flex;
             justify-content: space-between;
-            align-items: center; /* Align items vertically in the number-row */
+            align-items: center;
         }
 
         .number-display {
@@ -43,77 +59,108 @@
         }
 
         .number-button {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 5px;
-            background-color: #EEF1FF;
+            margin: 10px;
+            background-color: #e0e0e0;
             border-radius: 50%;
             color: #000000;
-            font-size: 20px;
+            font-size: 30px;
             cursor: pointer;
         }
 
         .small-button {
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 5px;
-            background-color: #b52121;
-            border-radius: 50%;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-right: 145px;
+    background-color: #d6d6d6; /* Change to gray background color */
+    border-radius: 50%;
+    color: #666666; /* Change to gray color */
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: auto; /* Move the button to the right */
+}
+
+        .number-button,
+        #call-button,
+        .small-button {
+            outline: none;
+            border: none;
         }
 
-        .call-button {
-            width: 60px;
-            height: 60px;
+        #call-button {
+            width: 80px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 5px;
-            background-color: #EEF1FF;
+            background-color: #53d769;
             border-radius: 50%;
-            color: #000000;
-            font-size: 20px;
+            color: white;
+            font-size: 17px;
             cursor: pointer;
+            margin-bottom: -80px;
         }
 
         #navbar {
             position: fixed;
             width: 35%;
             bottom: 0;
-            background-color: #55618D;
+            background-color: #f8f8f8;
             display: flex;
             justify-content: center;
-            padding: 10px 0;
+            padding: 5px 0;
         }
-
         .nav-link {
-            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            color: #96A1C8;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 5px 50px;
             font-weight: bold;
-            transition: background-color 0.3s; /* Optional: Add a transition effect for link hover */
+            transition: background-color 0.3s;
+            font-size: 13px;
         }
 
-        .nav-link:hover {
-            background-color: #96A1C8; /* Optional: Change the background color on hover */
+        .circle-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px; /* Adjust the size as needed */
+            height: 40px; /* Adjust the size as needed */
+            border-radius: 50%; /* Makes it a circle */
+            background-color: #96A1C8;
+        }
+        /* Style for the icon inside the circle */
+        .circle-icon i {
+            font-size: 20px; /* Adjust the size as needed */
+            color: white; /* Icon color */
+        }
+
+        .nav-link .fas.fa-phone {
+            margin-top: 5px; /* Adjust the margin as needed */
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <button id="signInButton">Sign In to T-Mobile</button>
       <div class="number-row">
           <div class="number-display" id="number-display">
               <span class="phone-number-text" id="phone-number-text"></span>
           </div>
-          <button class="small-button" id="delete-button">DEL</button>
+          
       </div>
         <div class="number-pad" id="number-pad">
             <div class="number-row">
@@ -136,14 +183,182 @@
                 <button class="number-button" data-number="0">0</button>
                 <button class="number-button" data-number="#">#</button>
             </div>
+            
         </div>
-        <button class="call-button" id="call-button">Call</button>
+        <button id="call-button" id="call-button"><i class="fas fa-phone fa-2x text-primary"></i></button>
+        <button class="small-button" id="delete-button">
+            <i class="fas fa-backspace"></i>
+        </button>
     </div>
+
     <script src="dial.js"></script>
     <div id="navbar">
-      <a class="nav-link" href="./contacts.html">Contacts</a>
-      <a class="nav-link" href="./dial.html">Dial</a>
-      <a class="nav-link" href="./account.html">Account</a>
-  </div>
+        <a class="nav-link" href="./contacts.html"><div class="circle-icon">
+            <i class="fas fa-user"></i>
+            
+        </div>
+        <span>Contacts</span></a>
+        <a class="nav-link" href="./dial.html"><i class="fas fa-phone fa-2x text-primary"></i>
+            <span>Dial</span></a>
+        <a class="nav-link" href="./account.html"><div class="circle-icon">
+            <i class="fas fa-cog fa-2x"></i>
+        </div>
+        <span>Account</span></a>
+    </div>
 </body>
+
+<script type="module">
+    //  Import the CoreSDK as a Module Script
+    import {
+      endCallHandler,
+      getActiveCall,
+      holdCallHandler,
+      makeOutgoingCall,
+      muteCallHandler,
+      setActiveCall,
+      startApp,
+      userSignIn,
+      userSignOut,
+    } from './index.js'
+
+    const WORKING = 'working...'
+    const CALL = 'Call'
+    const END = 'End'
+    const CALLING = 'Calling...'
+    const MUTE = 'Mute'
+    const UNMUTE = 'Unmute'
+    const HOLD = 'Hold'
+    const RESUME = 'Resume'
+    const DISCONNECTED = 'disconnected'
+
+   
+
+    // Setup event listeners for the html buttons
+    const siButton = document.getElementById('signInButton');
+        if (siButton) {
+            siButton.addEventListener('click', () => {
+                siButton.style.display = 'none'; // Hide the button
+                userSignIn(); // Call the sign-in function
+            });
+        }
+
+        const soButton = document.getElementById('signOutButton');
+        if (soButton) {
+            soButton.addEventListener('click', () => {
+                siButton.style.display = 'block'; // Show the Sign In button when signing out
+                userSignOut(); // Call the sign-out function
+            });
+        }
+
+    /////////////////////////////////////////////////////////
+    // Call Handlers
+    const callButton = document.getElementById('callButton')
+    if (callButton) {
+      callButton.addEventListener('click', () => {
+        const fromNumberSelectEle = document.getElementById('fromNumberSelect')
+        const selectedOptions = fromNumberSelectEle.selectedOptions
+        let fromNumber
+        if (selectedOptions && selectedOptions[0]) {
+          fromNumber = selectedOptions[0].innerText
+        }
+        if (!fromNumber) {
+          console.warn('Cannot determine fromNumber from selection element')
+          // Calling code will default to using the first line of available lines
+        }
+        const toNumberEle = document.getElementById('toNumberInput')
+        if (toNumberEle) {
+          const toNumber = toNumberEle.value
+          callButton.setAttribute('disabled', 'true')
+          // if we don't define the 'fromNumber' parameter, then by default the
+          // lib will use our first number
+          makeOutgoingCall(toNumber, fromNumber, false)
+            .then((ac) => {
+              setActiveCall(ac)
+            })
+            .catch((err) => {
+              console.warn('Error making call', err)
+              resetButtonDefaults()
+            })
+        }
+      })
+    }
+
+    /////////////////////////////////////////
+    const endButton = document.getElementById('endButton')
+    if (endButton) {
+      endButton.addEventListener('click', () => {
+        const activeCall = getActiveCall()
+        if (activeCall) {
+          endCallHandler(activeCall.getNetworkCallId())
+          resetButtonDefaults()
+        }
+      })
+    }
+
+    /////////////////////////////////////////
+    const muteButton = document.getElementById('muteButton')
+    if (muteButton) {
+      muteButton.addEventListener('click', () => {
+        if (muteButton.innerText !== WORKING) {
+          const activeCall = getActiveCall()
+          if (activeCall) {
+            muteButton.innerText = WORKING
+            muteCallHandler(activeCall.getNetworkCallId()).then((isMuted) => {
+              if (isMuted) {
+                muteButton.innerText = UNMUTE
+              } else {
+                muteButton.innerText = MUTE
+              }
+            })
+          }
+        }
+      })
+    }
+
+    /////////////////////////////////////////
+    const holdButton = document.getElementById('holdButton')
+    if (holdButton) {
+      holdButton.addEventListener('click', () => {
+        if (holdButton.innerText !== WORKING) {
+          const activeCall = getActiveCall()
+          if (activeCall) {
+            holdButton.innerText = WORKING
+            holdCallHandler(activeCall.getNetworkCallId()).finally(() => {
+              holdButton.innerText = activeCall.isOnHold() ? RESUME : HOLD
+            })
+          }
+        }
+      })
+    }
+
+    const callStatusInput = document.getElementById('callStatus')
+    if (callStatusInput) {
+      callStatusInput.addEventListener('change', () => {
+        if (callStatusInput.value === DISCONNECTED && callButton) {
+          callButton.removeAttribute('disabled')
+        }
+      })
+    }
+
+    /////////////////////////////////
+    function resetButtonDefaults() {
+      const activeCall = getActiveCall()
+      if (muteButton) {
+        muteButton.innerText = activeCall?.isMuted() ? UNMUTE : MUTE
+      }
+      if (holdButton) {
+        holdButton.innerText = activeCall?.isOnHold() ? RESUME : HOLD
+      }
+      if (callButton) {
+        callButton.removeAttribute('disabled')
+      }
+    }
+
+    resetButtonDefaults()
+
+    // Jump into the local app code
+    startApp()
+  </script>
 </html>
+
+

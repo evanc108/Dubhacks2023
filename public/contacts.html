@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link href='https://fonts.googleapis.com/css?family=Hind' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta charset="UTF-8">
     <title>Contacts</title>
     <style>
-        /* Add your CSS styles here */
         body {
             width: 35%;
             height: 100vh;
             margin: 0 auto;
+            font-family: 'Hind', sans-serif;
         }
         #container {
+            background-color: #ffffff;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -20,11 +23,12 @@
             width: 100%;
             padding: 20px;
             font-size: 20px;
-            color: #55618D;
+            color: black;
             font-weight: bold;
         }
         .group-title {
             font-size: 15px;
+            font-weight: 700;
             color: #55618D;
             margin-top: 10px;
             margin-bottom: 10px;
@@ -52,23 +56,44 @@
             position: fixed;
             width: 35%;
             bottom: 0;
-            background-color: #55618D;
+            background-color: #f8f8f8;
             display: flex;
             justify-content: center;
-            padding: 10px 0;
+            padding: 5px 0;
         }
-
         .nav-link {
-            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            color: #96A1C8;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 5px 50px;
             font-weight: bold;
-            transition: background-color 0.3s; /* Optional: Add a transition effect for link hover */
+            transition: background-color 0.3s;
+            font-size: 13px;
         }
 
-        .nav-link:hover {
-            background-color: #96A1C8; /* Optional: Change the background color on hover */
+        .circle-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px; /* Adjust the size as needed */
+            height: 40px; /* Adjust the size as needed */
+            border-radius: 50%; /* Makes it a circle */
+            background-color: #96A1C8;
         }
+        /* Style for the icon inside the circle */
+        .circle-icon i {
+            font-size: 20px; /* Adjust the size as needed */
+            color: white; /* Icon color */
+        }
+
+        .nav-link .fas.fa-phone {
+            margin-top: 5px; /* Adjust the margin as needed */
+            margin-bottom: 10px;
+        }
+
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
@@ -78,7 +103,9 @@
 <body>
     <div id="container">
         <div id="contacts-container">
-            <div id="group-title" class="hidden">Contacts</div>
+            <div id="group-title" class="hidden">
+                <h1>Contacts</h1>
+            </div>
             <div id="contacts-list"></div>
         </div>
         <div id="loader" class="hidden">
@@ -87,9 +114,17 @@
     </div>
     <script src="contacts.js"></script>
     <div id="navbar">
-        <a class="nav-link" href="./contacts.html">Contacts</a>
-        <a class="nav-link" href="./dial.html">Dial</a>
-        <a class="nav-link" href="./account.html">Account</a>
+        <a class="nav-link" href="./contacts.html"><div class="circle-icon">
+            <i class="fas fa-user"></i>
+            
+        </div>
+        <span>Contacts</span></a>
+        <a class="nav-link" href="./dial.html"><i class="fas fa-phone fa-2x text-primary"></i>
+            <span>Dial</span></a>
+        <a class="nav-link" href="./account.html"><div class="circle-icon">
+            <i class="fas fa-cog fa-2x"></i>
+        </div>
+        <span>Account</span></a>
     </div>
 </body>
 </html>
