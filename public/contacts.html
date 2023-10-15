@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            width: 35%;
+            height: 100vh;
+            margin: 0 auto;
+        }
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        #contacts-container {
+            width: 100%;
+            padding: 20px;
+            font-size: 20px;
+            color: #55618D;
+            font-weight: bold;
+        }
+        .group-title {
+            font-size: 15px;
+            color: #55618D;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .contact-item {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .contact-name {
+            font-size: 18px;
+        }
+        .contact-phone {
+            font-size: 14px;
+            color: #888;
+        }
+        #activity-indicator {
+            border: 4px solid #9E896A;
+            border-top: 4px solid #f3f3f3;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 2s linear infinite;
+        }
+        #navbar {
+            position: fixed;
+            width: 35%;
+            bottom: 0;
+            background-color: #55618D;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            transition: background-color 0.3s; /* Optional: Add a transition effect for link hover */
+        }
+
+        .nav-link:hover {
+            background-color: #96A1C8; /* Optional: Change the background color on hover */
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="contacts-container">
+            <div id="group-title" class="hidden">Contacts</div>
+            <div id="contacts-list"></div>
+        </div>
+        <div id="loader" class="hidden">
+            <div id="activity-indicator"></div>
+        </div>
+    </div>
+    <script src="contacts.js"></script>
+    <div id="navbar">
+        <a class="nav-link" href="./contacts.html">Contacts</a>
+        <a class="nav-link" href="./dial.html">Dial</a>
+        <a class="nav-link" href="./account.html">Account</a>
+    </div>
+</body>
+</html>
