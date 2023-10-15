@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>iPhone Dialer</title>
+  <style>
+    body {
+      background-color: #f0f0f0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    #dialer {
+      background-color: #f7f7f7;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .dial-button {
+      width: 60px;
+      height: 60px;
+      background-color: #4a90e2;
+      color: white;
+      font-size: 24px;
+      border: 2px solid #3579bd;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin: 5px;
+      transition: background-color 0.2s;
+    }
+
+    .dial-button:hover {
+      background-color: #3579bd;
+    }
+
+    #dial-number {
+      font-size: 24px;
+      width: 80%;
+      border: none;
+      border-bottom: 2px solid #ccc;
+      padding: 10px;
+      margin: 20px 0;
+      text-align: center;
+      outline: none;
+    }
+
+    .dial-pad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .zero {
+      grid-column: 2;
+      grid-row: 4;
+    }
+
+    #call-button {
+      background-color: #44c767;
+      color: white;
+      font-size: 24px;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    #call-button:hover {
+      background-color: #3aa658;
+    }
+  </style>
+</head>
+<body>
+  <div id="dialer">
+    <input id="dial-number" type="tel" placeholder="Enter a number" />
+    <div class="dial-pad">
+      <div class="dial-button" onclick="dialNumber('1')">1</div>
+      <div class="dial-button" onclick="dialNumber('2')">2</div>
+      <div class="dial-button" onclick="dialNumber('3')">3</div>
+      <div class="dial-button" onclick="dialNumber('4')">4</div>
+      <div class="dial-button" onclick="dialNumber('5')">5</div>
+      <div class="dial-button" onclick="dialNumber('6')">6</div>
+      <div class="dial-button" onclick="dialNumber('7')">7</div>
+      <div class="dial-button" onclick="dialNumber('8')">8</div>
+      <div class="dial-button" onclick="dialNumber('9')">9</div>
+      <div class="dial-button zero" onclick="dialNumber('0')">0</div>
+      <div class="dial-button" onclick="dialNumber('*')">*</div>
+      <div class="dial-button" onclick="dialNumber('#')">#</div>
+    </div>
+    <button id="call-button" onclick="callNumber()">Call</button>
+  </div>
+
+  <script>
+    function dialNumber(digit) {
+      const dialNumberInput = document.getElementById("dial-number");
+      dialNumberInput.value += digit;
+    }
+
+    function callNumber() {
+      const dialNumberInput = document.getElementById("dial-number");
+      const numberToCall = dialNumberInput.value;
+      // Implement your call functionality here using the "numberToCall" variable.
+    }
+  </script>
+</body>
+</html>
