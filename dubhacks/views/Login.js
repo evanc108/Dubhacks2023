@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native'; // Import the useNavigation hook
 import * as Font from 'expo-font';
 import SwitchButton from '../components/switchButton';
 import TextInputField from '../components/textInput';
 import RememberForgotSection from '../components/rememberForgotSection';
 import ActionButton from '../components/actionButton';
-import Header from '../components/header';
 
 const Login = () => {
     const [fontLoaded, setFontLoaded] = useState(false);
@@ -16,6 +16,9 @@ const Login = () => {
     const [loginTextColor, setLoginTextColor] = useState('white');
     const [registerTextColor, setRegisterTextColor] = useState('black');
     const [isRegisterScreen, setIsRegisterScreen] = useState(false);
+
+    // Use the useNavigation hook to get the navigation object
+    const navigation = useNavigation();
 
     useEffect(() => {
         async function loadFont() {
@@ -52,6 +55,13 @@ const Login = () => {
         setIsRegisterScreen(true);
     };
 
+    // Function to handle the login action
+    const handleLogin = () => {
+        // Perform login logic here
+        // For now, let's just navigate to the Contacts page
+        navigation.navigate('Contacts');
+    };
+
     return (
         <View style={styles.container}>
             <Header />
@@ -80,16 +90,18 @@ const Login = () => {
                     toggleRememberMe={() => setRememberMe(!rememberMe)}
                     fontLoaded={fontLoaded}
                 />
-                <ActionButton
-                    text={isRegisterScreen ? 'Register' : 'Login'}
-                    backgroundColor={isRegisterScreen ? '#86A37D' : '#9E896A'}
-                    fontLoaded={fontLoaded}
-                    onPress={() => { }}
-                />
+                <TouchableOpacity onPress={handleLogin}>
+                    <ActionButton
+                        text={isRegisterScreen ? 'Register' : 'Login'}
+                        backgroundColor={isRegisterScreen ? '#86A37D' : '#9E896A'}
+                        fontLoaded={fontLoaded}
+                    />
+                </TouchableOpacity>
             </View>
         </View>
     );
 };
+
 
 const styles = StyleSheet.create({
     container: {

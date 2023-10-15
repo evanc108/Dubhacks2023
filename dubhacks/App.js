@@ -1,21 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import Login from './views/Login';
-import Call from './views/Call';
+import Contacts from './views/Contacts';
+import Dial from './views/Dial';
 
-export default function App() {
+const Stack = createStackNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Call />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Contacts">
+        <Stack.Screen name="Contacts" component={Contacts} />
+        <Stack.Screen name="Dial" component={Dial} />
+
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;

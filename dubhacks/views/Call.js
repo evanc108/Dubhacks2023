@@ -2,32 +2,27 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Button, ScrollView, TextInput } from 'react-native';
 
 import {
-    endCallHandler,
-    getActiveCall,
-    holdCallHandler,
-    makeOutgoingCall,
-    muteCallHandler,
-    setActiveCall,
     startApp,
     userSignIn,
     userSignOut,
+    getAllAccountLines,
 } from '../yna/calling.js';
 
-function Calling() {
-  const [connectionStatus, setConnectionStatus] = useState('App Startup');
+function Call() {
+  const [connectionStatus, setConnectionStatus] = useState('Connected');
   const [fromNumber, setFromNumber] = useState('');
   const [toNumber, setToNumber] = useState('');
   const [callStatus, setCallStatus] = useState('disconnected');
 
-  const WORKING = 'working...'
-      const CALL = 'Call'
-      const END = 'End'
-      const CALLING = 'Calling...'
-      const MUTE = 'Mute'
-      const UNMUTE = 'Unmute'
-      const HOLD = 'Hold'
-      const RESUME = 'Resume'
-      const DISCONNECTED = 'disconnected'
+  const WORKING = 'working...';
+  const CALL = 'Call';
+  const END = 'End';
+  const CALLING = 'Calling...';
+  const MUTE = 'Mute';
+  const UNMUTE = 'Unmute';
+  const HOLD = 'Hold';
+  const RESUME = 'Resume';
+  const DISCONNECTED = 'disconnected';
 
   useEffect(() => {
     handleStartApp();
@@ -38,8 +33,12 @@ function Calling() {
     setConnectionStatus(appState);
   };
 
-  const handleSignIn = () => {
-    userSignIn();
+  const handleSignIn = async () => {
+    if (connectionStatus === 'CONNECTED') {
+      await userSignIn();
+    } else {
+      console.error('Cannot sign in when not connected.');
+    }
   };
 
   const handleSignOut = async () => {
@@ -81,4 +80,4 @@ function Calling() {
   );
 }
 
-export default Calling;
+export default Call;

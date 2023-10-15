@@ -40,6 +40,8 @@ export const startApp = async () => {
     return ConnectionStates.CONNECT_FAILED
   })
 
+  regMgr.appStart()
+
   setNetworkConnectionText(regMgr.isOnline() ? 'onLine' : 'offLine')
   setWebsocketStatusText(regMgr.isWebSocketConnected() ? 'open' : 'closed')
 
