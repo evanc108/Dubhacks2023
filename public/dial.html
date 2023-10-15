@@ -1,119 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>iPhone Dialer</title>
-  <style>
-    body {
-      background-color: #f0f0f0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dial.css">
+    <title>Dial</title>
+    <style>
+      body {
+            width: 35%;
+            height: 100vh;
+            margin: 0 auto;
+        }
 
-    #dialer {
-      background-color: #f7f7f7;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
 
-    .dial-button {
-      width: 60px;
-      height: 60px;
-      background-color: #4a90e2;
-      color: white;
-      font-size: 24px;
-      border: 2px solid #3579bd;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      margin: 5px;
-      transition: background-color 0.2s;
-    }
+        .number-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* Align items vertically in the number-row */
+        }
 
-    .dial-button:hover {
-      background-color: #3579bd;
-    }
+        .number-display {
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 60%;
+        }
 
-    #dial-number {
-      font-size: 24px;
-      width: 80%;
-      border: none;
-      border-bottom: 2px solid #ccc;
-      padding: 10px;
-      margin: 20px 0;
-      text-align: center;
-      outline: none;
-    }
+        .phone-number-text {
+            font-size: 25px;
+        }
 
-    .dial-pad {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(4, 1fr);
-      gap: 10px;
-    }
+        .number-pad {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-    .zero {
-      grid-column: 2;
-      grid-row: 4;
-    }
+        .number-button {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5px;
+            background-color: #EEF1FF;
+            border-radius: 50%;
+            color: #000000;
+            font-size: 20px;
+            cursor: pointer;
+        }
 
-    #call-button {
-      background-color: #44c767;
-      color: white;
-      font-size: 24px;
-      border: none;
-      border-radius: 10px;
-      padding: 10px 20px;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
+        .small-button {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5px;
+            background-color: #b52121;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
 
-    #call-button:hover {
-      background-color: #3aa658;
-    }
-  </style>
+        .call-button {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5px;
+            background-color: #EEF1FF;
+            border-radius: 50%;
+            color: #000000;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        #navbar {
+            position: fixed;
+            width: 35%;
+            bottom: 0;
+            background-color: #55618D;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            transition: background-color 0.3s; /* Optional: Add a transition effect for link hover */
+        }
+
+        .nav-link:hover {
+            background-color: #96A1C8; /* Optional: Change the background color on hover */
+        }
+    </style>
 </head>
 <body>
-  <div id="dialer">
-    <input id="dial-number" type="tel" placeholder="Enter a number" />
-    <div class="dial-pad">
-      <div class="dial-button" onclick="dialNumber('1')">1</div>
-      <div class="dial-button" onclick="dialNumber('2')">2</div>
-      <div class="dial-button" onclick="dialNumber('3')">3</div>
-      <div class="dial-button" onclick="dialNumber('4')">4</div>
-      <div class="dial-button" onclick="dialNumber('5')">5</div>
-      <div class="dial-button" onclick="dialNumber('6')">6</div>
-      <div class="dial-button" onclick="dialNumber('7')">7</div>
-      <div class="dial-button" onclick="dialNumber('8')">8</div>
-      <div class="dial-button" onclick="dialNumber('9')">9</div>
-      <div class="dial-button zero" onclick="dialNumber('0')">0</div>
-      <div class="dial-button" onclick="dialNumber('*')">*</div>
-      <div class="dial-button" onclick="dialNumber('#')">#</div>
+    <div class="container">
+      <div class="number-row">
+          <div class="number-display" id="number-display">
+              <span class="phone-number-text" id="phone-number-text"></span>
+          </div>
+          <button class="small-button" id="delete-button">DEL</button>
+      </div>
+        <div class="number-pad" id="number-pad">
+            <div class="number-row">
+                <button class="number-button" data-number="1">1</button>
+                <button class="number-button" data-number="2">2</button>
+                <button class="number-button" data-number="3">3</button>
+            </div>
+            <div class="number-row">
+                <button class="number-button" data-number="4">4</button>
+                <button class="number-button" data-number="5">5</button>
+                <button class="number-button" data-number="6">6</button>
+            </div>
+            <div class="number-row">
+                <button class="number-button" data-number="7">7</button>
+                <button class="number-button" data-number="8">8</button>
+                <button class="number-button" data-number="9">9</button>
+            </div>
+            <div class="number-row">
+                <button class="number-button" data-number="*">*</button>
+                <button class="number-button" data-number="0">0</button>
+                <button class="number-button" data-number="#">#</button>
+            </div>
+        </div>
+        <button class="call-button" id="call-button">Call</button>
     </div>
-    <button id="call-button" onclick="callNumber()">Call</button>
+    <script src="dial.js"></script>
+    <div id="navbar">
+      <a class="nav-link" href="./contacts.html">Contacts</a>
+      <a class="nav-link" href="./dial.html">Dial</a>
+      <a class="nav-link" href="./account.html">Account</a>
   </div>
-
-  <script>
-    function dialNumber(digit) {
-      const dialNumberInput = document.getElementById("dial-number");
-      dialNumberInput.value += digit;
-    }
-
-    function callNumber() {
-      const dialNumberInput = document.getElementById("dial-number");
-      const numberToCall = dialNumberInput.value;
-      // Implement your call functionality here using the "numberToCall" variable.
-    }
-  </script>
 </body>
 </html>
