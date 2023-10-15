@@ -36,7 +36,7 @@ export const clientConfig = {
     'r/2xAoGAJtK2wxbyk/9ULZadDo4nCUjDkgUP2hL7jly2YIvLJ/Y0zznI04XhdF86' +
     '8Pr+HuVeI5XchNyMuXMEJso3hd5/XL77HVvW/ShuTnQXgu2ogursDOggwXFr/rWz' +
     'u/6zcND8RVFyCCNW45xL580n7ISOnaqX34cQvVHAOwqQi/DrVKs=' +
-    '-----END RSA PRIVATE KEY-----'
+    '-----END RSA PRIVATE KEY-----',
     
   }
   /////////////////////////////////////////////////////
